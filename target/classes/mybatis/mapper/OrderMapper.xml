@@ -26,4 +26,12 @@
         select t.*,toi.* from t_order t inner join t_order_item toi on t.order_id = toi.order_id where t.order_id = #{orderId}
     </select>
 
+    <select id="queryMyOrderList" resultType="map" >
+        select t.*,toi.* from t_order t inner join t_order_item toi on t.order_id = toi.order_id
+    </select>
+
+    <select id="queryUserList" resultType="map" >
+        select t.*,lod.* from user t inner join loudong lod on t.city = lod.city
+    </select>
+
 </mapper>

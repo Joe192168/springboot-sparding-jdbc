@@ -4,6 +4,8 @@ import com.sharding.entity.Order;
 import org.apache.ibatis.annotations.Param;
 import tk.mybatis.mapper.common.Mapper;
 
+import java.util.*;
+
 /**
  * @author linzef
  * @since 2020-12-12
@@ -18,5 +20,17 @@ public interface OrderMapper extends Mapper<Order> {
      * @return 返回查询结果
      */
     Order queryMyOrder(@Param("orderId") Long orderId);
+
+    /**
+     * 查询所有
+     * @return
+     */
+    List<Map<String,Object>> queryMyOrderList();
+
+    /**
+     * 查询所有
+     * @return
+     */
+    List<Map<String,Object>> queryUserList();
 
 }

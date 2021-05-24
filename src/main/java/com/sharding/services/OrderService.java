@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * @author linzef
  * @since 2020-12-12
@@ -41,6 +44,14 @@ public class OrderService {
      */
     public Order getOrderByOrderId(Long orderId){
         return orderMapper.queryMyOrder(orderId);
+    }
+
+    public List<Map<String,Object>> queryMyOrderList(){
+        return orderMapper.queryMyOrderList();
+    }
+
+    public List<Map<String,Object>> queryUserList(){
+        return orderMapper.queryUserList();
     }
 
 }
