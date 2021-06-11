@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.joe.mapper.TOrderMapper">
+
+
+    <select id="findOrderListByPage" resultType="com.joe.entity.TOrder">
+        SELECT a.order_id orderId,a.order_no orderNo,a.create_name createName,a.price,
+        b.item_name itemName,b.item_desc itemDesc,a.create_time createTime,a.update_time updateTime
+        FROM t_order a
+        LEFT JOIN t_order_item b ON a.order_no=b.order_no
+        ORDER BY a.price LIMIT 0,100
+    </select>
+
+    <select id="getUserOderById" resultType="map" parameterType="long">
+        select * from t_user_order where user_id = ${userId}
+    </select>
+
+
+</mapper>
